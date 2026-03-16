@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Avi | The Alchemist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Contact page specific ── */
+    .contact-page {
+      min-height: 100vh;
+      padding: 140px 24px 80px;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 30%, rgba(107, 34, 51, 0.05), transparent),
+        linear-gradient(180deg, var(--cream), var(--paper));
+    }
+
+    .contact-page-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .contact-page-inner h1 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--deep);
+      margin: 0 0 16px;
+    }
+
+    .contact-page-inner > p {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin: 0 0 48px;
+      line-height: 1.7;
+    }
+
+    /* ── Form ── */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-field label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      opacity: 0.8;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--text);
+      background: var(--warm-white);
+      border: 1px solid rgba(107, 34, 51, 0.1);
+      border-radius: 10px;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b7b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-color: rgba(107, 34, 51, 0.3);
+      box-shadow: 0 0 0 3px rgba(107, 34, 51, 0.06);
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient texture layer -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Avi</a>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#philosophy">Philosophy</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#collaborators">Collaborators</a>
+      <a href="contact.html" style="color: var(--maroon);">Let's talk</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Contact Page -->
+  <main class="contact-page">
+    <div class="contact-page-inner">
+      <p class="contact-eyebrow fade-in">Get in touch</p>
+      <h1 class="fade-in">Let's build something<br><em style="color: var(--maroon); font-style: italic;">together</em></h1>
+      <p class="fade-in">Send me a rough idea, a voice note description, or just a mood. I'll find a way to turn it into something you can live in.</p>
+
+      <form class="contact-form fade-in" action="mailto:avimusicproductions@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="What do people call you?" autocomplete="name" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="inquiry">What are you looking for?</label>
+          <select id="inquiry" name="inquiry">
+            <option value="" disabled selected>Select a direction...</option>
+            <option value="collab">Collaboration / co-production</option>
+            <option value="production">Beat / full production</option>
+            <option value="sounddesign">Sound design</option>
+            <option value="finishing">Finishing an existing project</option>
+            <option value="teaching">Lessons / mentorship</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="message">The idea, the mood, the vision</label>
+          <textarea id="message" name="message" placeholder="Describe the world you're trying to build. The emotion, the reference, the half-formed idea — bring it all." required></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-lg">Send it</button>
+          <span class="form-note">I'll get back to you within a few days.</span>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name">Avi — The Alchemist</span>
+      <nav class="footer-nav">
+        <a href="index.html#about">About</a>
+        <a href="index.html#philosophy">Philosophy</a>
+        <a href="index.html#services">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
