@@ -36,6 +36,31 @@
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; }
 
+/* ── Custom cursor ── */
+* { cursor: none !important; }
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: #000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  will-change: top, left;
+}
+
+.cursor.hover {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1.5px solid #000;
+}
+
 /* ── Base ── */
 body {
   font-family: var(--sans);
@@ -47,6 +72,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
+
+html { overflow-x: hidden; }
 
 /* ── Film grain overlay ── */
 .grain {
@@ -707,29 +734,59 @@ body {
 /* ── Reveal animations ── */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s var(--ease-out) forwards;
+  transform: translateY(32px);
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .fade-in:nth-child(1) { animation-delay: 0.1s; }
-.fade-in:nth-child(2) { animation-delay: 0.25s; }
-.fade-in:nth-child(3) { animation-delay: 0.4s; }
-.fade-in:nth-child(4) { animation-delay: 0.55s; }
+.fade-in:nth-child(2) { animation-delay: 0.28s; }
+.fade-in:nth-child(3) { animation-delay: 0.46s; }
+.fade-in:nth-child(4) { animation-delay: 0.62s; }
+.fade-in:nth-child(5) { animation-delay: 0.76s; }
 
 @keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translate(0, 0); }
 }
 
+/* Scroll-triggered fly-ins */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  transform: translateY(80px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.from-left  { transform: translateX(-110px); }
+.reveal.from-right { transform: translateX(110px); }
+
+/* Cards get a spring bounce */
+.reveal.spring {
+  transition: opacity 1s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0, 0);
 }
+
+/* ── Button ripple ── */
+.btn { position: relative; overflow: hidden; }
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: rippleOut 0.65s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleOut {
+  to { transform: scale(5); opacity: 0; }
+}
+
+.btn:active { transform: scale(0.96) translateY(0) !important; }
 
 /* ── Selection style ── */
 ::selection {
