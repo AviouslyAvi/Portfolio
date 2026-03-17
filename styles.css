@@ -1,23 +1,23 @@
 /* ===================================================
    Avi — The Alchemist | Portfolio
-   Light academia palette · Warm · Velvety · Textured
+   Dark studio palette · Midnight · Gold · Cinematic
    =================================================== */
 
 :root {
-  /* Core palette — light academia with muted darks */
-  --cream: #f5f0ea;
-  --paper: #faf7f2;
-  --warm-white: #fffcf7;
-  --latte: #e8ddd2;
-  --caramel: #c4a882;
-  --muted-brown: #8b7b6b;
-  --maroon: #6b2233;
-  --maroon-light: rgba(107, 34, 51, 0.08);
-  --maroon-glow: rgba(107, 34, 51, 0.15);
-  --dusk: #4a2c3d;
-  --deep: #2a2320;
-  --text: #3d3530;
-  --text-muted: #7a6e64;
+  /* Core palette — dark studio with gold accents */
+  --cream: #0f1117;
+  --paper: #13161e;
+  --warm-white: #1a1e28;
+  --latte: #1f2333;
+  --caramel: #c9a84c;
+  --muted-brown: #7a6e4a;
+  --maroon: #c9a84c;
+  --maroon-light: rgba(201, 168, 76, 0.08);
+  --maroon-glow: rgba(201, 168, 76, 0.15);
+  --dusk: #e0c16e;
+  --deep: #f0ece4;
+  --text: #cdc8be;
+  --text-muted: #7a7568;
 
   /* Typography */
   --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
@@ -80,7 +80,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 18px 32px;
-  background: rgba(245, 240, 234, 0.85);
+  background: rgba(15, 17, 23, 0.90);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(107, 34, 51, 0.06);
@@ -157,8 +157,8 @@ body {
   padding: 120px 24px 80px;
   position: relative;
   background:
-    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(107, 34, 51, 0.05), transparent),
-    radial-gradient(ellipse 60% 60% at 30% 70%, rgba(196, 168, 130, 0.08), transparent),
+    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201, 168, 76, 0.06), transparent),
+    radial-gradient(ellipse 60% 60% at 30% 70%, rgba(201, 168, 76, 0.04), transparent),
     linear-gradient(180deg, var(--cream), var(--paper));
 }
 
@@ -733,7 +733,7 @@ body {
 
 /* ── Selection style ── */
 ::selection {
-  background: rgba(107, 34, 51, 0.15);
+  background: rgba(201, 168, 76, 0.2);
   color: var(--deep);
 }
 
@@ -781,7 +781,7 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(245, 240, 234, 0.97);
+    background: rgba(15, 17, 23, 0.98);
     backdrop-filter: blur(16px);
     padding: 24px;
     gap: 20px;
